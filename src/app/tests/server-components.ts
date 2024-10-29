@@ -68,11 +68,11 @@ export default function ProductsPage() {
   return <ProductList products={products} />;
 }`,
       options: [
-        'Option A: Using async Server Component with fetch',
-        'Option B: Using useEffect with fetch',
+        'Option A: Using useEffect with fetch',
+        'Option B: Using async Server Component with fetch',
         'Option C: Using SWR for data fetching'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Server Components in Next.js 14 should use async/await with fetch for data fetching, taking advantage of automatic request deduplication and built-in caching mechanisms.'
     },
     {
@@ -155,11 +155,11 @@ export default async function DashboardPage() {
   );
 }`,
       options: [
-        'Option A: Using Server Components with selective client components',
-        'Option B: Using Client Component with useEffect',
+        'Option A: Using Client Component with useEffect',
+        'Option B: Using Server Components with selective client components',
         'Option C: Using mixed directives'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Next.js 14 recommends keeping components server-side by default and selectively marking interactive parts as client components, using Suspense for streaming and passing server data as props.'
     },
     {
@@ -312,11 +312,11 @@ export default async function DashboardPage() {
   );
 }`,
       options: [
-        'Option A: Using nested Suspense boundaries',
-        'Option B: Using Promise.all with loading state',
-        'Option C: Using parallel data fetching'
+        'Option A: Using Promise.all with loading state',
+        'Option B: Using parallel data fetching',
+        'Option C: Using nested Suspense boundaries',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 Server Components support streaming through nested Suspense boundaries, allowing progressive loading of UI elements as data becomes available.'
     },
     {
@@ -478,11 +478,11 @@ export default function ProductsPage() {
   );
 }`,
       options: [
-        'Option A: Using searchParams with server-side form',
-        'Option B: Using client-side state management',
-        'Option C: Using useSearchParams hook'
+        'Option A: Using client-side state management',
+        'Option B: Using useSearchParams hook',
+        'Option C: Using searchParams with server-side form',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 Server Components can handle search and filtering through URL searchParams, maintaining a stateless architecture with server-side rendering.'
     },
     {
@@ -585,11 +585,11 @@ export default function ProductsPage() {
         );
       }`,
         options: [
-          'Option A: Using Server Actions with optimistic updates',
           'Option B: Using client-side fetch with loading state',
+          'Option A: Using Server Actions with optimistic updates',
           'Option C: Using mutation library'
         ],
-        correctAnswer: 0,
+        correctAnswer: 1,
         explanation: 'Next.js 14 Server Components work best with Server Actions and useOptimistic hook for immediate UI feedback while mutations complete.'
       },
         {
@@ -658,11 +658,11 @@ export default function ProductsPage() {
         return <PostContent id={params.id} />;
       }`,
           options: [
-            'Option A: Using server-first approach with client enhancements',
-            'Option B: Using client-side data fetching',
-            'Option C: Using useEffect for enhancements'
+            'Option A: Using client-side data fetching',
+            'Option B: Using useEffect for enhancements',
+            'Option C: Using server-first approach with client enhancements'
           ],
-          correctAnswer: 0,
+          correctAnswer: 2,
           explanation: 'Next.js 14 Server Components support progressive enhancement by starting with server-rendered HTML and selectively adding client-side interactivity.'
         },
         {
@@ -785,11 +785,11 @@ export default function ProductsPage() {
         return <StaticPost id={params.id} />;
       }`,
           options: [
-            'Option A: Using conditional dynamic rendering',
-            'Option B: Using forced dynamic rendering',
+            'Option A: Using forced dynamic rendering',
+            'Option B: Using conditional dynamic rendering',
             'Option C: Using client-side rendering decision'
           ],
-          correctAnswer: 0,
+          correctAnswer: 1,
           explanation: 'Next.js 14 Server Components support conditional dynamic rendering based on runtime checks, allowing optimal caching strategies for different content types.'
         }
     ]

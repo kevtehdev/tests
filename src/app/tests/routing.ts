@@ -129,11 +129,11 @@ export default function Layout({
   )
 }`,
       options: [
-        'Option A: Using @folder convention with parallel route slots',
-        'Option B: Rendering components side by side',
+        'Option A: Rendering components side by side',
+        'Option B: Using @folder convention with parallel route slots',
         'Option C: Using Suspense in layout'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Next.js 14 uses the @folder convention for parallel routes, allowing independent loading states and error handling for each route slot.'
     },
     {
@@ -182,11 +182,11 @@ export default function Feed() {
   );
 }`,
       options: [
-        'Option A: Using (..) convention for intercepting routes',
+        'Option A: Using client-side state management',
         'Option B: Using nested routes with Dialog',
-        'Option C: Using client-side state management'
+        'Option C: Using (..) convention for intercepting routes'
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 uses the (..) convention for intercepting routes, allowing you to show a route in a different context while preserving the ability to navigate to the original route.'
     },
     {
@@ -254,11 +254,11 @@ export default function Layout({
   )
 }`,
       options: [
-        'Option A: Using (folder) convention for route groups',
+        'Option A: Using layout provider',
         'Option B: Using conditional layouts',
-        'Option C: Using layout provider'
+        'Option C: Using (folder) convention for route groups'
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 uses (folder) convention for route groups to organize routes without affecting the URL structure and share common layouts between specific routes.'
     },
     {
@@ -315,12 +315,12 @@ export async function getServerSideProps() {
     revalidate: 3600
   };
 }`,
-      options: [
-        'Option A: Using fetch with next.revalidate and tags',
-        'Option B: Using SWR with refresh interval',
+      options: [   
+        'Option A: Using SWR with refresh interval',
+        'Option B: Using fetch with next.revalidate and tags',
         'Option C: Using getServerSideProps with revalidate'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Next.js 14 recommends using fetch with next.revalidate and tags for granular control over data revalidation in Server Components.'
     },
     {
@@ -554,12 +554,12 @@ export default function Navigation() {
     </nav>
   );
 }`,
-options: [
-    'Option A: Using next/link with prefetch controls',
-    'Option B: Using useRouter for navigation',
+options: [ 
+    'Option A: Using useRouter for navigation',
+    'Option B: Using next/link with prefetch controls',
     'Option C: Using standard anchor tags'
   ],
-  correctAnswer: 0,
+  correctAnswer: 1,
   explanation: 'Next.js 14 uses the Link component with prefetch controls for optimal client-side navigation and automatic prefetching of routes.'
 },
 {
@@ -626,11 +626,11 @@ return (
 );
 }`,
   options: [
-    'Option A: Using next/image with proper configuration',
-    'Option B: Using standard img tags with lazy loading',
-    'Option C: Using client-side image loading'
+    'Option A: Using standard img tags with lazy loading',
+    'Option B: Using client-side image loading',
+    'Option C: Using next/image with proper configuration'
   ],
-  correctAnswer: 0,
+  correctAnswer: 2,
   explanation: 'Next.js 14 uses the Image component with proper configuration for automatic optimization, lazy loading, and priority loading for critical images.'
 },
 {
@@ -762,11 +762,11 @@ return <Error />;
 }
 }`,
   options: [
-    'Option A: Using Suspense boundaries and loading.tsx',
-    'Option B: Using useState for loading state',
-    'Option C: Using try-catch with async component'
+    'Option A: Using useState for loading state',
+    'Option B: Using try-catch with async component',
+    'Option C: Using Suspense boundaries and loading.tsx'
   ],
-  correctAnswer: 0,
+  correctAnswer: 2,
   explanation: 'Next.js 14 uses a combination of Suspense boundaries and loading.tsx files for optimal loading UI at the route segment level.'
 },
 {
@@ -837,11 +837,11 @@ return <ErrorComponent error={error} />;
 }
 }`,
   options: [
-    'Option A: Using error.tsx and notFound()',
-    'Option B: Using state-based error handling',
-    'Option C: Using try-catch blocks'
+    'Option A: Using state-based error handling',
+    'Option B: Using try-catch blocks',
+    'Option C: Using error.tsx and notFound()'
   ],
-  correctAnswer: 0,
+  correctAnswer: 2,
   explanation: 'Next.js 14 uses error.tsx files for error boundaries and the notFound() function for 404 errors, providing automatic error handling at the route segment level.'
 },
 {
@@ -977,11 +977,11 @@ params: { id: string }
 return <ProductDetails id={params.id} />;
 }`,
   options: [
-    'Option A: Using generateMetadata with dynamic values',
-    'Option B: Using useEffect for metadata',
+    'Option A: Using useEffect for metadata',
+    'Option B: Using generateMetadata with dynamic values',
     'Option C: Using static metadata export'
   ],
-  correctAnswer: 0,
+  correctAnswer: 1,
   explanation: 'Next.js 14 uses generateMetadata for dynamic metadata generation and supports cascading metadata through the route hierarchy.'
 }
 ]

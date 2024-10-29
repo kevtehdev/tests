@@ -78,11 +78,11 @@ const handler: NextApiHandler = NextAuth({
 
 export { handler as GET, handler as POST };`,
       options: [
-        'Option A: Using Auth.js configuration with middleware',
-        'Option B: Using pages directory configuration',
-        'Option C: Using App Router API routes'
+        'Option A: Using pages directory configuration',
+        'Option B: Using App Router API routes',
+        'Option C: Using Auth.js configuration with middleware',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Auth.js (NextAuth v5) in Next.js 14 uses a new configuration pattern with auth.ts, explicitly exported handlers, and middleware integration.'
     },
     {
@@ -142,11 +142,11 @@ export default function Page() {
   return <Dashboard />;
 }`,
       options: [
-        'Option A: Using middleware with auth check',
-        'Option B: Using layout-based protection',
-        'Option C: Using client-side session check'
+        'Option A: Using layout-based protection',
+        'Option B: Using client-side session check',
+        'Option C: Using middleware with auth check',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Auth.js in Next.js 14 recommends using middleware with auth checks for protecting routes at the edge, before any rendering occurs.'
     },
     {
@@ -303,11 +303,11 @@ export default function LoginPage() {
   return <form onSubmit={handleLogin}>...</form>;
 }`,
       options: [
-        'Option A: Using auth() check and signIn function',
-        'Option B: Using pages directory signin page',
+        'Option A: Using pages directory signin page',
+        'Option B: Using auth() check and signIn function',
         'Option C: Using custom API route'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Auth.js in Next.js 14 uses the auth() function for session checks and signIn function for authentication, with proper error handling and redirects.'
     },
     {
@@ -481,11 +481,11 @@ export default function AdminPage() {
   return <AdminPanel />;
 }`,
       options: [
-        'Option A: Using middleware with proper type extensions',
-        'Option B: Using layout-based role checking',
-        'Option C: Using client-side role checking'
+        'Option A: Using layout-based role checking',
+        'Option B: Using client-side role checking',
+        'Option C: Using middleware with proper type extensions',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Auth.js in Next.js 14 recommends using middleware with proper TypeScript extensions for role-based auth, ensuring type safety and early auth checks.'
     },
     {
@@ -648,11 +648,11 @@ const handler = NextAuth({
   },
 });`,
       options: [
-        'Option A: Using typed JWT callbacks with token refresh',
-        'Option B: Using custom JWT encoding',
-        'Option C: Using basic JWT configuration'
+        'Option A: Using custom JWT encoding',
+        'Option B: Using basic JWT configuration',
+        'Option C: Using typed JWT callbacks with token refresh',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Auth.js in Next.js 14 uses typed JWT callbacks for token customization, supporting token refresh and custom claims with proper type safety.'
     },
     {
@@ -713,11 +713,11 @@ export default function Page() {
   return <div>{session?.data?.user?.name}</div>;
 }`,
       options: [
-        'Option A: Using secure session configuration with callbacks',
-        'Option B: Using basic session configuration',
+        'Option A: Using basic session configuration',
+        'Option B: Using secure session configuration with callbacks',
         'Option C: Using client-side session handling'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Auth.js in Next.js 14 uses secure session configuration with proper cookie settings, JWT strategy, and session callbacks for optimal security.'
     },
     {
@@ -898,11 +898,11 @@ export default async function Layout({
   return children;
 }`,
       options: [
-        'Option A: Using tenant-aware callbacks and middleware',
-        'Option B: Using basic tenant session modification',
+        'Option A: Using basic tenant session modification',
+        'Option B: Using tenant-aware callbacks and middleware',
         'Option C: Using layout-based tenant checking'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Auth.js in Next.js 14 implements multi-tenant authentication using tenant-aware callbacks, middleware, and proper access validation.'
     }
   ]

@@ -51,9 +51,9 @@ export const env = {
   databaseUrl: process.env.DATABASE_URL,
 }`,
       options: [
-        'Using .env.local with NEXT_PUBLIC prefix',
-        'Using next.config.js env configuration',
-        'Using centralized env configuration'
+        'Option A: Using next.config.js env configuration',
+        'Option B: Using centralized env configuration',
+        'Option C: Using .env.local with NEXT_PUBLIC prefix',
       ],
       correctAnswer: 0,
       explanation: 'Next.js 14 recommends using .env.local with NEXT_PUBLIC prefix for client-exposed variables. This approach ensures proper handling of environment variables, keeping sensitive variables server-side only and exposing public variables where needed.'
@@ -92,9 +92,9 @@ module.exports = {
   }
 }`,
       options: [
-        'Using standalone output with build optimization',
-        'Using server target with custom build directory',
-        'Using static export configuration'
+        'Option A: Using standalone output with build optimization',
+        'Option B: Using server target with custom build directory',
+        'Option C: Using static export configuration'
       ],
       correctAnswer: 0,
       explanation: 'Next.js 14 performs best with standalone output configuration for deployments. This creates a minimal production build that includes only the necessary dependencies and optimizes for production deployment.'
@@ -150,11 +150,11 @@ module.exports = {
   }
 }`,
       options: [
-        'Using route handlers with granular cache control',
-        'Using middleware for global cache headers',
-        'Using next.config.js header configuration'
+        'Option A: Using middleware for global cache headers',
+        'Option B: Using next.config.js header configuration',
+        'Option C: Using route handlers with granular cache control',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 recommends implementing cache headers at the route handler level for granular control. This enables specific caching strategies for different routes and content types while maintaining flexibility.'
     },
     {
@@ -207,9 +207,9 @@ export async function POST(request: Request) {
   return Response.json({ logged: true });
 }`,
       options: [
-        'Using error boundary with error tracking integration',
-        'Using middleware error catching',
-        'Using dedicated error logging endpoint'
+        'Option A: Using error boundary with error tracking integration',
+        'Option B: Using middleware error catching',
+        'Option C: Using dedicated error logging endpoint'
       ],
       correctAnswer: 0,
       explanation: 'Next.js 14 provides the best error tracking through error boundaries with integrated error tracking services. This captures both client and server errors with proper context and error digests for debugging.'
@@ -261,11 +261,11 @@ export function middleware(request: NextRequest) {
   }
 }`,
       options: [
-        'Using dedicated health check route with service checks',
-        'Using page component for health status',
-        'Using middleware health check response'
+        'Option A: Using page component for health status',
+        'Option B; Using middleware health check response',
+        'Option C: Using dedicated health check route with service checks'
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 applications should implement health checks as dedicated API routes that verify all critical service dependencies. This ensures comprehensive system health monitoring and reliable deployment status checks.'
     },
     {
@@ -313,9 +313,9 @@ module.exports = {
   distDir: process.env.BUILD_DIR || '.next'
 }`,
       options: [
-        'Using build cache with proper Docker configuration',
-        'Clearing cache before each build',
-        'Using custom build directory'
+        'Option A: Using build cache with proper Docker configuration',
+        'Option B: Clearing cache before each build',
+        'Option C: Using custom build directory'
       ],
       correctAnswer: 0,
       explanation: 'Next.js 14 builds are most efficient when properly utilizing build caches in CI/CD pipelines. This includes correct Docker cache configuration, output tracing, and proper handling of the Next.js cache directory.'
@@ -383,11 +383,11 @@ export async function GET(request: Request) {
   return response;
 }`,
       options: [
-        'Using rewrites with preview API routes',
-        'Using middleware preview redirection',
-        'Using cookie-based preview system'
+        'Option A: Using middleware preview redirection',
+        'Option B: Using rewrites with preview API routes',
+        'Option C: Using cookie-based preview system'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Next.js 14 preview deployments work best with rewrites and dedicated preview API routes. This enables secure preview functionality with dynamic parameter handling while maintaining proper separation of preview and production traffic.'
     },
     {
@@ -441,11 +441,11 @@ export async function POST(request: Request) {
   return Response.json({ logged: true });
 }`,
       options: [
-        'Using structured logging with environment awareness',
-        'Using middleware request logging',
-        'Using dedicated logging endpoint'
+        'Option A: Using middleware request logging',
+        'Option B: Using dedicated logging endpoint',
+        'Option C: Using structured logging with environment awareness',
       ],
-      correctAnswer: 0,
+      correctAnswer: 2,
       explanation: 'Next.js 14 production deployments should use structured logging with environment-aware formatting. This ensures proper log aggregation, searchability, and debugging capabilities in production environments.'
     },
     {
@@ -511,11 +511,11 @@ export function middleware(request: NextRequest) {
   return response;
 }`,
       options: [
-        'Using differentiated cache control headers',
-        'Using single global cache policy',
-        'Using middleware cache handling'
+        'Option A: Using single global cache policy',
+        'Option B: Using differentiated cache control headers',
+        'Option C: Using middleware cache handling'
       ],
-      correctAnswer: 0,
+      correctAnswer: 1,
       explanation: 'Next.js 14 performs best with differentiated CDN caching strategies. This allows for aggressive caching of static assets while maintaining appropriate caching policies for dynamic data and API routes.'
     },
     {
@@ -583,11 +583,11 @@ export function middleware(request: NextRequest) {
         return Response.json({ received: true });
       }`,
             options: [
-              'Using instrumentation with metrics and tracing',
-              'Using middleware logging',
-              'Using monitoring endpoint'
+              'Option A: Using middleware logging',
+              'Option B: Using monitoring endpoint',
+              'Option C: Using instrumentation with metrics and tracing'
             ],
-            correctAnswer: 0,
+            correctAnswer: 2,
             explanation: 'Next.js 14 provides comprehensive monitoring through instrumentation hooks, allowing proper metrics collection and tracing integration. This approach enables detailed performance monitoring, error tracking, and request tracing in production environments.'
           }
         ]
