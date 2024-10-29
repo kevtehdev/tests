@@ -8,7 +8,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const menuItems = [
     { label: 'Tests', href: '/tests' },
-    { label: 'Courses', href: '/courses' },
   ];
 
   return (
@@ -39,7 +38,7 @@ export default function Navigation() {
                   />
                 </svg>
               </div>
-              <span>Next.js Learning</span>
+              <span>Next.js 14 - Learning</span>
             </Link>
 
             <div className="hidden sm:flex items-center gap-1">
@@ -67,39 +66,7 @@ export default function Navigation() {
               ))}
             </div>
           </div>
-
           <div className="flex items-center gap-4">
-            <button
-              className="p-2 rounded-lg hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Toggle theme"
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <svg 
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              </motion.div>
-            </button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-            >
-              Sign In
-            </motion.button>
           </div>
         </div>
       </div>
