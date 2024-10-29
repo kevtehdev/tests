@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="dark:bg-neutral-950">
         <div className="flex min-h-screen">
           <div className="flex-1">
             <Navigation />
