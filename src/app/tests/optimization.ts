@@ -528,61 +528,6 @@ const inter = localFont({
       explanation: 'Next.js 14 recommends using next/font/google with display swap for optimal font loading. This approach automatically handles font optimization, including subsets, caching, and loading.'
     },
     {
-        id: 'opt9',
-      question: 'What is the correct way to optimize font loading in Next.js 14?',
-      code: `
-// Which font loading implementation is most optimal?
-
-// Option A
-// app/layout.tsx
-import { Inter } from 'next/font/google';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en" className={inter.className}>
-      <body>{children}</body>
-    </html>
-  );
-}
-
-// Option B
-// app/layout.tsx
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
-    </html>
-  );
-}
-
-// Option C
-// app/layout.tsx
-import localFont from 'next/font/local';
-
-const inter = localFont({
-  src: '../assets/inter.woff2',
-  display: 'block',
-});`,
-      options: [
-        'Using next/font/google with display swap',
-        'Using Google Fonts CSS link',
-        'Using next/font/local with display block'
-      ],
-      correctAnswer: 0,
-      explanation: 'Next.js 14 recommends using next/font/google with display swap for optimal font loading. This approach automatically handles font optimization, including subsets, caching, and prevents layout shift while ensuring fast font loading.'
-    },
-    {
       id: 'opt10',
       question: 'How should you optimize metadata handling in Next.js 14?',
       code: `
