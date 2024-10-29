@@ -1,19 +1,27 @@
 import { Test } from '../types';
+import { TestRenderer } from './TestRenderer';
+import { notFound } from 'next/navigation';
+import { TEST_CATEGORIES, getCategoryDisplayName } from '../categories';
+
+// Code Learning Tests
 import { fundamentalsTest } from '../fundamentals';
 import { routingTest } from '../routing';
 import { dataFetchingTest } from '../data-fetching';
 import { optimizationTest } from '../optimization';
 import { deploymentTest } from '../deployment';
-import { authTest } from '../auth';
 import { serverComponentsTest } from '../server-components';
-import { certificationTest } from '../certification-test';
+import { authTest } from '../auth';
+
+// Exam and Certification Tests
+import { uniqueCertificationTest } from '../certification-test';
 import { mixedTest } from '../mixed-concepts';
 import { mixedConceptTest } from '../mixed-concepts-2';
-import { TestRenderer } from './TestRenderer';
-import { notFound } from 'next/navigation';
-import { TEST_CATEGORIES, getCategoryDisplayName } from '../categories';
+import { nextjsExamPrepTest } from '../exam-prep-test';
+import { advancedExamPrepTest } from '../exam-prep-test-with-code';
 
+// Test Registry
 const tests: Record<string, Test> = {
+  // Code Learning and Implementation Tests
   [TEST_CATEGORIES.FUNDAMENTALS]: fundamentalsTest,
   [TEST_CATEGORIES.ROUTING]: routingTest,
   [TEST_CATEGORIES.DATA_FETCHING]: dataFetchingTest,
@@ -21,18 +29,17 @@ const tests: Record<string, Test> = {
   [TEST_CATEGORIES.DEPLOYMENT]: deploymentTest,
   [TEST_CATEGORIES.SERVER_COMPONENTS]: serverComponentsTest,
   [TEST_CATEGORIES.AUTH]: authTest,
-  [TEST_CATEGORIES.CERTIFICATION]: certificationTest,
+
+  // Exam Preparation and Certification Tests
+  [TEST_CATEGORIES.CERTIFICATION]: uniqueCertificationTest,
   [TEST_CATEGORIES.MIXED]: mixedTest,
-  [TEST_CATEGORIES.MIXED_THEORY]: mixedConceptTest
+  [TEST_CATEGORIES.MIXED_THEORY]: mixedConceptTest,
+  [TEST_CATEGORIES.EXAM_PREP]: nextjsExamPrepTest,
+  [TEST_CATEGORIES.EXAM_PREP_CODE]: advancedExamPrepTest
 };
 
 interface PageProps {
   params: Promise<{ category: string }> | { category: string }
-}
-
-async function getTest(params: PageProps['params']) {
-  const resolvedParams = await params;
-  return tests[resolvedParams.category];
 }
 
 export default async function TestPage({ params }: PageProps) {
@@ -66,6 +73,23 @@ export default async function TestPage({ params }: PageProps) {
             {test.metadata.prerequisites && (
               <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
                 Prerequisites: {test.metadata.prerequisites.join(', ')}
+              </div>
+            )}
+            {test.metadata.totalQuestions && (
+              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
+                Questions: {test.metadata.totalQuestions}
+              </div>
+            )}
+            {test.metadata.topics && (
+              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
+                Topics: {test.metadata.topics.join(', ')}
+              </div>
+            )}
+            {test.metadata.difficultyBreakdown && (
+              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
+                Difficulty: {Object.entries(test.metadata.difficultyBreakdown)
+                  .map(([level, count]) => `${level}: ${count}`)
+                  .join(', ')}
               </div>
             )}
           </div>

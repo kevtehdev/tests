@@ -8,11 +8,13 @@ export const TEST_CATEGORIES = {
   AUTH: 'next-auth',
   CERTIFICATION: 'next-certification',
   MIXED: 'mixed-concepts',
-  MIXED_THEORY: 'mixed-theory' // Added new category
+  MIXED_THEORY: 'mixed-theory',
+  EXAM_PREP: 'exam-preparation',
+  EXAM_PREP_CODE: 'exam-preparation-with-code'  // Added new category
 } as const;
 
 export type CategoryType = typeof TEST_CATEGORIES[keyof typeof TEST_CATEGORIES];
-export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';
+export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
 
 export function getCategoryDisplayName(category: CategoryType): string {
   return category
@@ -32,7 +34,9 @@ export function getCategoryDescription(category: CategoryType): string {
     'next-auth': 'Authentication and authorization patterns',
     'next-certification': 'Preparation for Next.js certification',
     'mixed-concepts': 'Comprehensive test covering various aspects of Next.js 14',
-    'mixed-theory': 'Theoretical concepts and best practices without code implementation'
+    'mixed-theory': 'Theoretical concepts and best practices without code implementation',
+    'exam-preparation': 'Focused preparation for Next.js certification exam',
+    'exam-preparation-with-code': 'Advanced exam preparation with practical code implementations'
   };
   
   return descriptions[category];

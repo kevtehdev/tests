@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -24,9 +24,21 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.75rem;
+
+    /* Category-specific colors */
+    --learning-gradient-from: #2563eb; /* Blue-600 */
+    --learning-gradient-to: #06b6d4; /* Cyan-500 */
+    --learning-badge-bg: #dbeafe; /* Blue-100 */
+    --learning-badge-text: #1e40af; /* Blue-800 */
+
+    --exam-gradient-from: #8b5cf6; /* Violet-600 */
+    --exam-gradient-to: #a855f7; /* Purple-500 */
+    --exam-badge-bg: #ede9fe; /* Violet-100 */
+    --exam-badge-text: #6b21a8; /* Violet-800 */
   }
- 
+
   .dark {
+    /* Dark mode adjustments */
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
     --card: 24 9.8% 10%;
@@ -46,62 +58,41 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-  }
 
-  * {
-    @apply border-border;
-  }
+    /* Dark mode category-specific colors */
+    --learning-gradient-from: #2563eb; /* Adjust as needed */
+    --learning-gradient-to: #06b6d4;
+    --learning-badge-bg: #1e3a8a; /* Adjusted Blue for dark */
+    --learning-badge-text: #60a5fa;
 
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground antialiased min-h-screen;
+    --exam-gradient-from: #7c3aed; /* Adjust Violet-600 for dark */
+    --exam-gradient-to: #a78bfa;
+    --exam-badge-bg: #4c1d95;
+    --exam-badge-text: #d8b4fe;
   }
 }
 
 @layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  /* Custom gradient classes */
+  .learning-gradient {
+    background-image: linear-gradient(to right, var(--learning-gradient-from), var(--learning-gradient-to));
   }
 
-  .flex-center {
-    @apply flex items-center justify-center;
+  .exam-gradient {
+    background-image: linear-gradient(to right, var(--exam-gradient-from), var(--exam-gradient-to));
   }
 
-  .nav-link {
-    @apply px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground 
-    hover:text-foreground hover:bg-muted/50 transition-colors;
+  /* Custom badge classes */
+  .badge-learning {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    background-color: var(--learning-badge-bg);
+    color: var(--learning-badge-text);
   }
 
-  .nav-link-active {
-    @apply text-primary bg-primary/10;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium 
-    transition-colors focus-visible:outline-none focus-visible:ring-2 
-    focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
-  }
-
-  .btn-ghost {
-    @apply hover:bg-muted hover:text-foreground;
-  }
-
-  .input {
-    @apply flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm 
-    ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium 
-    placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 
-    focus-visible:ring-ring invalid:border-destructive invalid:text-destructive-foreground;
+  .badge-exam {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    background-color: var(--exam-badge-bg);
+    color: var(--exam-badge-text);
   }
 }
 
@@ -120,6 +111,6 @@
 
   /* Glass effect utilities */
   .glass {
-    @apply bg-background/80 backdrop-blur-xl backdrop-saturate-200
+    @apply bg-background/80 backdrop-blur-xl backdrop-saturate-200;
   }
 }

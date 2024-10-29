@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { CategoryType } from '@/app/tests/categories'
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,10 +20,12 @@ const item = {
 };
 
 interface TestsCategoryGridProps {
-  categories: string[];
+  categories: CategoryType[];
+  theme?: string;
+  groupType?: 'learning' | 'exam';
 }
 
-export function TestsCategoryGrid({ categories }: TestsCategoryGridProps) {
+export function TestsCategoryGrid({ categories, groupType = 'learning' }: TestsCategoryGridProps) {
   const getCategoryIcon = (category: string) => {
     switch(category) {
       case 'fundamentals':
@@ -46,6 +49,12 @@ export function TestsCategoryGrid({ categories }: TestsCategoryGridProps) {
     }
   };
 
+  const getThemeColors = () => {
+    return groupType === 'exam' 
+      ? 'bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 shadow-violet-200/50 dark:shadow-violet-900/30'
+      : 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 shadow-blue-200/50 dark:shadow-blue-900/30';
+  };
+
   return (
     <motion.div 
       variants={container}
@@ -60,17 +69,22 @@ export function TestsCategoryGrid({ categories }: TestsCategoryGridProps) {
             className="group block p-8 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200/50 dark:border-neutral-800 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 shadow-lg shadow-violet-200/50 dark:shadow-violet-900/30 group-hover:scale-110 transition-transform duration-300">
+              <div className={`p-3 rounded-xl shadow-lg ${getThemeColors()} group-hover:scale-110 transition-transform duration-300`}>
                 {getCategoryIcon(category)}
               </div>
               <h2 className="text-2xl font-semibold text-neutral-800 dark:text-neutral-100 capitalize">
-                {category.replace('-', ' ')}
+                {category.split('-').join(' ')}
               </h2>
             </div>
             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Test your knowledge of {category.replace('-', ' ')} in Next.js 14. Master the concepts through practical questions and detailed explanations.
+              {groupType === 'exam' 
+                ? `Prepare for certification with our ${category.split('-').join(' ')} test. Practice with real exam-style questions and detailed explanations.`
+                : `Master ${category.split('-').join(' ')} in Next.js 14. Learn through practical examples and comprehensive testing.`
+              }
             </p>
-            <div className="mt-6 flex items-center text-violet-600 dark:text-violet-400 font-medium">
+            <div className={`mt-6 flex items-center font-medium ${
+              groupType === 'exam' ? 'text-violet-600 dark:text-violet-400' : 'text-blue-600 dark:text-blue-400'
+            }`}>
               Start Test
               <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
