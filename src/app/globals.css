@@ -4,99 +4,233 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Base colors - Lighter background */
+    --background: 240 10% 95.9%;
     --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    
+    /* Card colors - Slightly elevated */
+    --card: 240 10% 98%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
+    
+    /* Popover colors */
+    --popover: 240 10% 98%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 255 65% 55%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    
+    /* Primary colors - Keeping vibrant */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary colors */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Muted colors - Lighter but still subtle */
+    --muted: 240 10% 90%;
+    --muted-foreground: 240 5% 45%;
+    
+    /* Accent colors */
+    --accent: 240 10% 90%;
+    --accent-foreground: 240 10% 3.9%;
+    
+    /* Destructive colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.75rem;
+    
+    /* Border and input colors - Subtle borders */
+    --border: 240 10% 85%;
+    --input: 240 10% 90%;
+    --ring: 240 10% 83.9%;
 
-    /* Category-specific colors */
-    --learning-gradient-from: #2563eb; /* Blue-600 */
-    --learning-gradient-to: #06b6d4; /* Cyan-500 */
-    --learning-badge-bg: #dbeafe; /* Blue-100 */
-    --learning-badge-text: #1e40af; /* Blue-800 */
+    /* Learning pathway gradients - Keeping vibrant */
+    --learning-from: 217 91% 60%;
+    --learning-to: 183 100% 45%;
+    --exam-from: 271 91% 65%;
+    --exam-to: 288 96% 67%;
+    
+    /* Category-specific colors - Keeping vibrant */
+    --category-fundamentals: 221 83% 53%;
+    --category-routing: 262 83% 58%;
+    --category-data: 142 71% 45%;
+    --category-components: 328 86% 56%;
+    --category-optimization: 31 97% 55%;
+    --category-deployment: 187 92% 41%;
+    --category-auth: 326 100% 60%;
+    
+    /* Badge colors */
+    --badge-background: 217 91% 60%;
+    --badge-foreground: 210 40% 98%;
+    
+    /* Status colors - Keeping vibrant */
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+    --info: 217 91% 60%;
 
-    --exam-gradient-from: #8b5cf6; /* Violet-600 */
-    --exam-gradient-to: #a855f7; /* Purple-500 */
-    --exam-badge-bg: #ede9fe; /* Violet-100 */
-    --exam-badge-text: #6b21a8; /* Violet-800 */
+    /* Chart colors - Keeping vibrant */
+    --chart-1: 217 91% 60%;
+    --chart-2: 183 100% 45%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 326 100% 60%;
+    --chart-5: 31 97% 55%;
+
+    /* Border radius */
+    --radius: 1rem;
   }
 
   .dark {
-    /* Dark mode adjustments */
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 252 65% 60%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
+    /* Base colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Card colors */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    /* Popover colors */
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary colors */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary colors */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Muted colors */
+    --muted: 240 10% 13.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 12 6.5% 15.1%;
+    
+    /* Accent colors */
+    --accent: 240 10% 13.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    
+    /* Destructive colors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-
-    /* Dark mode category-specific colors */
-    --learning-gradient-from: #2563eb; /* Adjust as needed */
-    --learning-gradient-to: #06b6d4;
-    --learning-badge-bg: #1e3a8a; /* Adjusted Blue for dark */
-    --learning-badge-text: #60a5fa;
-
-    --exam-gradient-from: #7c3aed; /* Adjust Violet-600 for dark */
-    --exam-gradient-to: #a78bfa;
-    --exam-badge-bg: #4c1d95;
-    --exam-badge-text: #d8b4fe;
+    
+    /* Border and input colors */
+    --border: 240 10% 13.9%;
+    --input: 240 10% 13.9%;
+    --ring: 240 10% 83.9%;
   }
 }
 
 @layer components {
-  /* Custom gradient classes */
-  .learning-gradient {
-    background-image: linear-gradient(to right, var(--learning-gradient-from), var(--learning-gradient-to));
+  /* Modern card styles */
+  .card-interactive {
+    @apply bg-card rounded-2xl border border-border/50 p-6 transition-all duration-200
+           hover:border-primary/20 hover:shadow-lg hover:shadow-primary/20;
   }
 
-  .exam-gradient {
-    background-image: linear-gradient(to right, var(--exam-gradient-from), var(--exam-gradient-to));
+  .card-gradient {
+    @apply bg-gradient-to-br from-primary/5 to-secondary/5 
+           border border-border/50 rounded-2xl p-6;
   }
 
-  /* Custom badge classes */
-  .badge-learning {
-    @apply px-3 py-1 rounded-full text-sm font-medium;
-    background-color: var(--learning-badge-bg);
-    color: var(--learning-badge-text);
+  /* Badge variants */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
   }
 
-  .badge-exam {
-    @apply px-3 py-1 rounded-full text-sm font-medium;
-    background-color: var(--exam-badge-bg);
-    color: var(--exam-badge-text);
+  .badge-primary {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary/10 text-secondary;
+  }
+
+  /* Category badges */
+  .badge-fundamentals {
+    @apply bg-[hsl(var(--category-fundamentals)/0.1)] text-[hsl(var(--category-fundamentals))];
+  }
+
+  .badge-routing {
+    @apply bg-[hsl(var(--category-routing)/0.1)] text-[hsl(var(--category-routing))];
+  }
+
+  .badge-data {
+    @apply bg-[hsl(var(--category-data)/0.1)] text-[hsl(var(--category-data))];
+  }
+
+  .badge-components {
+    @apply bg-[hsl(var(--category-components)/0.1)] text-[hsl(var(--category-components))];
+  }
+
+  .badge-optimization {
+    @apply bg-[hsl(var(--category-optimization)/0.1)] text-[hsl(var(--category-optimization))];
+  }
+
+  .badge-deployment {
+    @apply bg-[hsl(var(--category-deployment)/0.1)] text-[hsl(var(--category-deployment))];
+  }
+
+  .badge-auth {
+    @apply bg-[hsl(var(--category-auth)/0.1)] text-[hsl(var(--category-auth))];
+  }
+
+  /* Learning pathway gradients */
+  .gradient-learning {
+    @apply bg-gradient-to-br from-[hsl(var(--learning-from))] to-[hsl(var(--learning-to))];
+  }
+
+  .gradient-exam {
+    @apply bg-gradient-to-br from-[hsl(var(--exam-from))] to-[hsl(var(--exam-to))];
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-xl backdrop-saturate-200 border border-border/50;
+  }
+
+  /* Typography */
+  .heading-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary to-secondary;
   }
 }
 
 @layer utilities {
+  /* Pattern backgrounds */
+  .pattern-grid {
+    background-image: linear-gradient(to right, hsl(var(--primary)/0.1) 1px, transparent 1px),
+                     linear-gradient(to bottom, hsl(var(--primary)/0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(circle, hsl(var(--primary)/0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Hover animations */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-200 hover:shadow-lg hover:shadow-primary/25;
+  }
+
+  /* Status indicators */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot-success {
+    @apply bg-[hsl(var(--success))];
+  }
+
+  .status-dot-warning {
+    @apply bg-[hsl(var(--warning))];
+  }
+
+  .status-dot-error {
+    @apply bg-[hsl(var(--error))];
+  }
+
+  /* Text balance and wrapping */
   .text-balance {
     text-wrap: balance;
   }
@@ -104,13 +238,32 @@
   .text-pretty {
     text-wrap: pretty;
   }
+}
 
-  .shadow-card {
-    @apply shadow-lg shadow-neutral-950/5;
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  /* Glass effect utilities */
-  .glass {
-    @apply bg-background/80 backdrop-blur-xl backdrop-saturate-200;
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/50 rounded-full;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
   }
 }

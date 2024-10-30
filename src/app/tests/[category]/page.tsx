@@ -2,6 +2,8 @@ import { Test } from '../types';
 import { TestRenderer } from './TestRenderer';
 import { notFound } from 'next/navigation';
 import { TEST_CATEGORIES, getCategoryDisplayName } from '../categories';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 // Code Learning Tests
 import { fundamentalsTest } from '../fundamentals';
@@ -51,52 +53,82 @@ export default async function TestPage({ params }: PageProps) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-blue-600">
-          {test.title}
-        </h1>
-        <p className="mt-2 text-muted-foreground">
-          {test.description}
-        </p>
-        {test.metadata && (
-          <div className="mt-4 flex flex-wrap gap-4">
-            <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-              {test.metadata.difficulty}
-            </div>
-            <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-              {test.metadata.duration} minutes
-            </div>
-            <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-              Passing Score: {test.metadata.passingScore}%
-            </div>
-            {test.metadata.prerequisites && (
-              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                Prerequisites: {test.metadata.prerequisites.join(', ')}
-              </div>
-            )}
-            {test.metadata.totalQuestions && (
-              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                Questions: {test.metadata.totalQuestions}
-              </div>
-            )}
-            {test.metadata.topics && (
-              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                Topics: {test.metadata.topics.join(', ')}
-              </div>
-            )}
-            {test.metadata.difficultyBreakdown && (
-              <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                Difficulty: {Object.entries(test.metadata.difficultyBreakdown)
-                  .map(([level, count]) => `${level}: ${count}`)
-                  .join(', ')}
+    <div className="min-h-screen bg-background pattern-dots">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Back Navigation */}
+        <Link 
+          href="/tests" 
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Tests
+        </Link>
+
+        {/* Test Header */}
+        <div className="card-gradient mb-8">
+          <div className="space-y-4">
+            <h1 className="text-3xl font-bold heading-gradient">
+              {test.title}
+            </h1>
+            <p className="text-muted-foreground">
+              {test.description}
+            </p>
+            {test.metadata && (
+              <div className="flex flex-wrap gap-3 pt-4">
+                {/* Difficulty */}
+                <span className="badge badge-primary">
+                  {test.metadata.difficulty}
+                </span>
+
+                {/* Duration */}
+                <span className="badge badge-primary">
+                  {test.metadata.duration} minutes
+                </span>
+
+                {/* Passing Score */}
+                <span className="badge badge-primary">
+                  Passing Score: {test.metadata.passingScore}%
+                </span>
+
+                {/* Prerequisites */}
+                {test.metadata.prerequisites && (
+                  <span className="badge badge-secondary">
+                    Prerequisites: {test.metadata.prerequisites.join(', ')}
+                  </span>
+                )}
+
+                {/* Question Count */}
+                {test.metadata.totalQuestions && (
+                  <span className="badge badge-secondary">
+                    Questions: {test.metadata.totalQuestions}
+                  </span>
+                )}
+
+                {/* Topics */}
+                {test.metadata.topics && (
+                  <span className="badge badge-secondary">
+                    Topics: {test.metadata.topics.join(', ')}
+                  </span>
+                )}
+
+                {/* Difficulty Breakdown */}
+                {test.metadata.difficultyBreakdown && (
+                  <span className="badge badge-secondary">
+                    Difficulty: {Object.entries(test.metadata.difficultyBreakdown)
+                      .map(([level, count]) => `${level}: ${count}`)
+                      .join(', ')}
+                  </span>
+                )}
               </div>
             )}
           </div>
-        )}
-      </div>
+        </div>
 
-      <TestRenderer test={test} />
+        {/* Test Content */}
+        <div className="card-interactive">
+          <TestRenderer test={test} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Test, TestQuestion } from '../types';
 import { TestQuestion as TestQuestionComponent } from '../components/TestQuestion';
+import { RefreshCcw, Eye } from 'lucide-react';
 
 interface TestRendererProps {
   test: Test;
@@ -45,22 +46,20 @@ export function TestRenderer({ test }: TestRendererProps) {
   return (
     <div className="space-y-8">
       {/* Progress Tracking */}
-      <div className="p-6 bg-neutral-900 text-neutral-100 rounded-xl shadow-md">
+      <div className="card-gradient">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold">Your Progress</h2>
-            <p className="text-sm text-neutral-400">
+            <h2 className="text-lg font-semibold text-foreground">Your Progress</h2>
+            <p className="text-sm text-muted-foreground">
               {progress.completed} of {progress.total} questions completed
             </p>
           </div>
           {progress.completed > 0 && (
             <div className="text-right">
-              <p className="text-sm font-medium">Current Score</p>
-              <p
-                className={`text-lg font-bold ${
-                  progress.score >= 70 ? 'text-green-500' : 'text-red-500'
-                }`}
-              >
+              <p className="text-sm font-medium text-muted-foreground">Current Score</p>
+              <p className={`text-lg font-bold ${
+                progress.score >= 70 ? 'text-[hsl(var(--success))]' : 'text-[hsl(var(--destructive))]'
+              }`}>
                 {progress.score}%
               </p>
             </div>
@@ -68,9 +67,9 @@ export function TestRenderer({ test }: TestRendererProps) {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full h-2 bg-neutral-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-500 transition-all duration-300"
+            className="h-full bg-primary transition-all duration-300"
             style={{ width: `${progress.percentage}%` }}
           />
         </div>
@@ -92,14 +91,16 @@ export function TestRenderer({ test }: TestRendererProps) {
 
       {/* Results Summary */}
       {progress.completed === progress.total && (
-        <div className="mt-8 p-6 bg-neutral-900 text-neutral-100 rounded-xl shadow-md">
+        <div className="card-gradient mt-8">
           <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4">Test Complete!</h2>
+            <h2 className="text-2xl font-bold mb-4 text-foreground">Test Complete!</h2>
             <div className="mb-6">
-              <p className="text-4xl font-bold mb-2 text-blue-400">
+              <p className={`text-4xl font-bold mb-2 ${
+                progress.score >= 70 ? 'text-[hsl(var(--success))]' : 'text-[hsl(var(--destructive))]'
+              }`}>
                 {progress.score}%
               </p>
-              <p className="text-neutral-400">
+              <p className="text-muted-foreground">
                 {progress.correct} correct out of {progress.total} questions
               </p>
             </div>
@@ -111,14 +112,16 @@ export function TestRenderer({ test }: TestRendererProps) {
                   setShowExplanations({});
                   window.scrollTo(0, 0);
                 }}
-                className="px-6 py-2 bg-blue-600 text-neutral-100 rounded-lg hover:bg-blue-700 transition"
+                className="inline-flex items-center px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition"
               >
+                <RefreshCcw className="w-4 h-4 mr-2" />
                 Try Again
               </button>
               <button
                 onClick={() => window.scrollTo(0, 0)}
-                className="px-6 py-2 bg-neutral-700 text-neutral-300 rounded-lg hover:bg-neutral-600 transition"
+                className="inline-flex items-center px-6 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/90 transition"
               >
+                <Eye className="w-4 h-4 mr-2" />
                 Review Answers
               </button>
             </div>
