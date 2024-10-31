@@ -206,7 +206,11 @@ export function getDifficultyStats(results: TestResult[], questions: TestQuestio
     beginner: { correct: 0, total: 0 },
     intermediate: { correct: 0, total: 0 },
     advanced: { correct: 0, total: 0 },
-    mixed: { correct: 0, total: 0 }
+    mixed: { correct: 0, total: 0 },
+    'certification-ready': {
+      correct: 0,
+      total: 0
+    }
   };
   
   questions.forEach((question, index) => {

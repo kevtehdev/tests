@@ -20,6 +20,7 @@ import { mixedTest } from '../mixed-concepts';
 import { mixedConceptTest } from '../mixed-concepts-2';
 import { nextjsExamPrepTest } from '../exam-prep-test';
 import { advancedExamPrepTest } from '../exam-prep-test-with-code';
+import { nextjs14CoreExamTest } from '../essential-certification-test';  
 
 // Test Registry
 const tests: Record<string, Test> = {
@@ -37,7 +38,8 @@ const tests: Record<string, Test> = {
   [TEST_CATEGORIES.MIXED]: mixedTest,
   [TEST_CATEGORIES.MIXED_THEORY]: mixedConceptTest,
   [TEST_CATEGORIES.EXAM_PREP]: nextjsExamPrepTest,
-  [TEST_CATEGORIES.EXAM_PREP_CODE]: advancedExamPrepTest
+  [TEST_CATEGORIES.EXAM_PREP_CODE]: advancedExamPrepTest,
+  [TEST_CATEGORIES.ESSENTIAL_CERT]: nextjs14CoreExamTest  // Added new test
 };
 
 interface PageProps {
